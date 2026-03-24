@@ -106,8 +106,8 @@ docker push usuario/customwebserver:latest
 
 La imagen queda disponible públicamente. Para correrla desde cualquier máquina:
 ```bash
-docker pull tu_usuario/customwebserver:latest
-docker run -d -p 42000:6000 tu_usuario/customwebserver:latest
+docker pull usuario/customwebserver:latest
+docker run -d -p 42000:6000 usuario/customwebserver:latest
 ```
 ![alt text](images/image-11.png)
 ![alt text](images/image-12.png)
@@ -130,7 +130,7 @@ sudo usermod -a -G docker ec2-user
 
 ### 3. Ejecutar la imagen desde Docker Hub
 ```bash
-docker run -d --name customdockeraws -p 42000:6000 tu_usuario/customwebserver:latest
+docker run -d --name customdockeraws -p 42000:6000 usuario/customwebserver:latest
 ```
 ![alt text](images/image-15.png)
 
