@@ -45,14 +45,14 @@ GET /greeting?name=User → {"message": "Hello, User!"}
 ```bash
 mvn clean install
 ```
-![alt text](image.png)
+![alt text](images/image.png)
 
 
 ### 2. Construir la imagen Docker
 ```bash
 docker build --tag customwebserver .
 ```
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ### 3. Correr 3 instancias del contenedor
 ```bash
@@ -60,14 +60,14 @@ docker run -d -p 34000:6000 --name webserver1 customwebserver
 docker run -d -p 34001:6000 --name webserver2 customwebserver
 docker run -d -p 34002:6000 --name webserver3 customwebserver
 ```
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 Verificar imágenes y contenedores corriendo:
 ```bash
 docker images
 docker ps
 ```
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 Accede a:
 * `http://localhost:34000/greeting?name=User`
@@ -75,9 +75,9 @@ Accede a:
 * `http://localhost:34002/greeting?name=User`
 
 
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
+![alt text](images/image-4.png)
+![alt text](images/image-5.png)
+![alt text](images/image-6.png)
 
 
 ### 4. Docker Compose
@@ -85,8 +85,8 @@ Accede a:
 docker-compose up -d
 ```
 Accede al servicio web en: `http://localhost:8087/greeting`
-![alt text](image-7.png)
-![alt text](image-8.png)
+![alt text](images/image-7.png)
+![alt text](images/image-8.png)
 
 
 ## Publicación en Docker Hub
@@ -97,20 +97,20 @@ docker tag customwebserver usuario/customwebserver:latest
 docker login
 docker push usuario/customwebserver:latest
 ```
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 
 ### 2. Repositorio publicado en Docker Hub con el tag latest
 
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
 La imagen queda disponible públicamente. Para correrla desde cualquier máquina:
 ```bash
 docker pull tu_usuario/customwebserver:latest
 docker run -d -p 42000:6000 tu_usuario/customwebserver:latest
 ```
-![alt text](image-11.png)
-![alt text](image-12.png)
+![alt text](images/image-11.png)
+![alt text](images/image-12.png)
 
 ## Despliegue en AWS EC2
 
@@ -125,14 +125,14 @@ sudo yum install docker -y
 sudo service docker start
 sudo usermod -a -G docker ec2-user
 ```
-![alt text](image-13.png)
-![alt text](image-14.png)
+![alt text](images/image-13.png)
+![alt text](images/image-14.png)
 
 ### 3. Ejecutar la imagen desde Docker Hub
 ```bash
 docker run -d --name customdockeraws -p 42000:6000 tu_usuario/customwebserver:latest
 ```
-![alt text](image-15.png)
+![alt text](images/image-15.png)
 
 ### 4. Configurar Security Group (Inbound Rules)
 Agregar una regla de entrada:
@@ -140,14 +140,14 @@ Agregar una regla de entrada:
 * **Port range**: 42000
 * **Source**: 0.0.0.0/0
 
-![alt text](image-17.png)
+![alt text](images/image-17.png)
 
 ### 5. Verificar acceso público
 Con la instancia en ejecución, Docker activo y la regla inbound configurada, la aplicación queda accesible desde:
 `http://ec2-XXX.compute-1.amazonaws.com:42000/greeting?name=User` (http://ec2-3-87-64-143.compute-1.amazonaws.com:42000/greeting?name=User
 )
 
-![alt text](image-16.png)
+![alt text](images/image-16.png)
 
 ## Requisitos Técnicos
 
@@ -170,7 +170,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 BUILD SUCCESS
 ```
 
-![alt text](image-18.png)
+![alt text](images/image-18.png)
 
 ## Estructura del Proyecto
 ```text
