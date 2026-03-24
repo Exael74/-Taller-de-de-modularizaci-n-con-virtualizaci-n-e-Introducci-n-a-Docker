@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Web Framework</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: #1e293b; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); text-align: center; border: 1px solid #334155; }
+        input { padding: 0.5rem; border-radius: 0.5rem; border: 1px solid #475569; background: #334155; color: white; margin-bottom: 1rem; }
+        button { padding: 0.5rem 1rem; border-radius: 0.5rem; border: none; background: #3b82f6; color: white; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #2563eb; }
+        #result { margin-top: 1rem; font-weight: bold; color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Custom Framework</h1>
+        <p>Enter your name to test the concurrent API:</p>
+        <input type="text" id="name" placeholder="Your Name">
+        <br>
+        <button onclick="greet()">Greet Me!</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function greet() {
+            const name = document.getElementById('name').value;
+            fetch(`/greeting?name=${name}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = data.message;
+                })
+                .catch(err => {
+                    document.getElementById('result').innerText = "Error!";
+                });
+        }
+    </script>
+</body>
+</html>
