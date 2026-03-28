@@ -196,3 +196,7 @@ custom-web-framework/
 ├── pom.xml
 └── README.md
 ```
+
+## Video de despliegues funcionando 
+<video controls src="20260328-0356-16.0556923.mp4" title="Title"></video>
+en caso de que el readme no lo muestre el video se encuentra como 20260328-0356-16.0556923.mp4 dentro del repositorio 
